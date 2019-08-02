@@ -18,6 +18,19 @@ connection.connect(function(err){
 });
 
 
+const displayItems = function() {
+  connection.query("SELECT * FROM products", function(err, res) {
+    if (err) throw err;
+    console.log('++++++++++++++++++')
+    console.log('Welcome to Bamazon');
+    console.log('++++++++++++++++++')
+  });
+
+connection.end();
+}
+
+displayItems();
+
 
 
 
