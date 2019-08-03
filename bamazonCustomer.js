@@ -18,7 +18,7 @@ connection.connect(function (err) {
 });
 
 
-const displayItems = function () {
+var displayItems = function () {
   connection.query("SELECT * FROM products", function (err, res) {
     if (err) throw err;
     console.log('     ++++++++++++++++++')
@@ -27,16 +27,15 @@ const displayItems = function () {
   });
   var table = new Table({
     head: ['HEADER ONE', 'HEADER 2', 'HEADER THREE'],
-    colWidths: [100, 200],
+    colWidths: [15, 50, 10],
     colAligns: ["center", "left", "right"],
   });
 
-
-  table.push(
-    ['First value', 'Second value']
-    , ['First value', 'Second value']
-  )
-
+    for (var i; i < res.length; i++) {
+      table.push([res[i].id, res[i].products_label, res[i].price]);
+    }
+    console.log(table.toString());
+    console.log('');
 
 
   connection.end();
