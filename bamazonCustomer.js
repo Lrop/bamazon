@@ -18,54 +18,64 @@ connection.connect(function (err) {
 });
 
 
-var displayItems = function () {
-  connection.query("SELECT * FROM products", function (err, res) {
-    if (err) throw err;
+// var displayItems = function () {
+//   connection.query("SELECT * FROM products", function (err, res) {
+//     if (err) throw err;
+//     console.log('     ++++++++++++++++++')
+//     console.log('     Welcome to Bamazon');
+//     console.log('     ++++++++++++++++++')
+//   });
+//   var table = new Table({
+//     head: ['HEADER ONE', 'HEADER 2', 'HEADER THREE'],
+//     colWidths: [15, 50, 10],
+//     colAligns: ["center", "left", "right"],
+//   });
+//     for(var i = 0; i < res.length; i++){
+//     displayTable.push(
+//     [res[i].id,res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]
+//     );
+// }
+
+//     // for (var i; i < res.length; i++) {
+//     //   table.push([res[i].id, res[i].products_label, res[i].price]);
+//     // }
+//     console.log(table.toString());
+//     console.log('');
+
+
+//   connection.end();
+// };
+
+
+var displayProducts = function(){
+	var query = "Select * FROM products";
+	connection.query(query, function(err, res){
+    if(err) throw err;
     console.log('     ++++++++++++++++++')
     console.log('     Welcome to Bamazon');
     console.log('     ++++++++++++++++++')
+		var displayTable = new Table ({
+			head: ["ID", "Product Name", "Catergory", "Price", "Quantity"],
+			colWidths: [10,25,25,10,14]
+    });
+    
+		for(var i = 0; i < res.length; i++){
+			displayTable.push(
+				[res[i].id,res[i].products_label, res[i].department_name, res[i].price, res[i].stock_quantity]
+				);
+		}
+		console.log(displayTable.toString());
+	
   });
-  var table = new Table({
-    head: ['HEADER ONE', 'HEADER 2', 'HEADER THREE'],
-    colWidths: [15, 50, 10],
-    colAligns: ["center", "left", "right"],
-  });
-
-    for (var i; i < res.length; i++) {
-      table.push([res[i].id, res[i].products_label, res[i].price]);
-    }
-    console.log(table.toString());
-    console.log('');
+  
+    connection.end();
+}
 
 
-  connection.end();
-};
+
+displayProducts();
+// displayItems();
 
 
 
 
-displayItems();
-
-
-
-
-
-
-//  function display() {
-//     connection.query("SELECT * FROM prodcuts", function(err, res) {
-//       if (err) throw err;
-//       console.log(res);
-//     })
-
-//     var table = new Table({
-//         head: ['TH 1 label', 'TH 2 label']
-//       , colWidths: [100, 200]
-//     });
-
-
-//     table.push(
-//         ['First value', 'Second value']
-//       , ['First value', 'Second value']
-//     )};
-
-//     display();
