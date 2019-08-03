@@ -2,6 +2,7 @@ var mysql = require('mysql');
 var inquirer = require('inquirer');
 var Table = require('cli-table2');
 var colors = require('colors');
+var clc = require("cli-color");
 
 
 var connection = mysql.createConnection({
