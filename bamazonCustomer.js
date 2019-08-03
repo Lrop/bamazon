@@ -53,17 +53,17 @@ var displayProducts = function(){
 	var query = "Select * FROM products";
 	connection.query(query, function(err, res){
     if(err) throw err;
-    console.log('     ++++++++++++++++++'.rainbow)
-    console.log('     Welcome to Bamazon');
-    console.log('     ++++++++++++++++++'.rainbow)
-    console.log('hello'.green); 
-    console.log('hello'.green); // outputs green text
+    console.log('                                  ++++++++++++++++++'.rainbow)
+    console.log('                                  Welcome to Bamazon'.white);
+    console.log('                                  ++++++++++++++++++'.rainbow)
+    // console.log('hello'.green); 
+    // console.log('hello'.green); // outputs green text
 // console.log('i like cake and pies'.underline.red) // outputs red underlined text
 // console.log('inverse the color'.inverse); // inverses the color
 // console.log('OMG Rainbows!'.rainbow); // rainbow
 // console.log('Run the trap'.trap);
 		var displayTable = new Table ({
-			head: ["ID".white.underline.white, "Product Name".white.underline.white, "Catergory".white.underline, "Price".white.underline, "Quantity".white.underline],
+			head: [" ID ".white.inverse, " Product Name ".white.inverse, " Catergory ".white.inverse, " Price ".white.inverse, " Quantity ".white.inverse],
 			colWidths: [10,25,25,10,14]
     });
     
