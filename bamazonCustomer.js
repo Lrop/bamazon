@@ -84,3 +84,10 @@ var displayProducts = function(){
 
 displayProducts();
 // displayItems();
+
+
+// var promtUser = function() {
+
+
+
+// }
