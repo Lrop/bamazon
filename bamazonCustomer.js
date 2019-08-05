@@ -77,12 +77,30 @@ var displayProducts = function(){
 
 
 
-displayProducts();
+// displayProducts();
 // displayItems();
 
 
-// var promtUser = function() {
+var promtUser = function() {
+  inquirer.prompt({
+    name:"productBuy",
+    type: "input",
+    message: "Please enter the ID of the desired item you wish to buy!"
 
+  }).then(function(responseONE){
+    var selection = responseONE.productBuy;
+    connenction.query("SELECT * FROM products WHERE Id=?", selection, function(err, res){
+      if (err) throw err;
+      if (res.length === 0){
+        console.log("we dont got it");
+        
 
-
-// }
+      }else {
+        console.log("good");
+        promtUser();
+      };
+    });
+  });
+};
+displayProducts();
+// promtUser();
