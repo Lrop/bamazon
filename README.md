@@ -31,7 +31,7 @@ Step One:
 
 Step Two:
 
-<img src = "Images/BAMAZON%202.PNG" height="500">
+<img src = "Images/BAMAZON%204.PNG" height="500">
 
 
 
