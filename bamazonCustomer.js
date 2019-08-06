@@ -84,7 +84,12 @@ var promtUser = function () {
             console.log(amount + "qty @ $" + res[0].price);
 
             var newStock = res[0].stock_quantity - amount;
-            connection.query("UPDATE bamazon_db.products SET stock_quantity = " + newStock + "WHERE id = " + res[0].id, function (err, resUpdate) {
+            connection.query(
+              "UPDATE products SET stock_quantity = " +
+                    newStock +
+                    " WHERE id = " +
+                    res[0].id,
+               function (err) {
 
               if (err) throw err;
               console.log('');
@@ -98,4 +103,8 @@ var promtUser = function () {
     });
   });
 };
+
+
+
+
 displayProducts();
