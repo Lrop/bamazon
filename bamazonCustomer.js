@@ -26,8 +26,10 @@ var displayProducts = function () {
   connection.query(query, function (err, res) {
     if (err) throw err;
     console.log('                                  ++++++++++++++++++'.rainbow)
-    console.log('                                  Welcome to Bamazon'.red);
+    console.log('                                  Welcome to Bamazon'.white);
     console.log('                                  ++++++++++++++++++'.rainbow)
+    console.log("");
+    console.log(  "                                 Find your item below!                                 ".white)
 
     var displayTable = new Table({
       head: [" ID ".white.inverse, " Product Name ".white.inverse, " Catergory ".white.inverse, " Price ".white.inverse, " Quantity ".white.inverse],
@@ -61,7 +63,9 @@ var promtUser = function () {
       // connection.end()
       if (err) throw err;
       if (res.length === 0) {
-        console.log("we dont got it");
+        console.log("We are currently out of stock or no longer carry this item.");
+        console.log("Please try again!")
+        connection.end();
         
       } else {
         inquirer.prompt({
