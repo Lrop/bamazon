@@ -84,14 +84,15 @@ var promtUser = function () {
             console.log(amount + "qty @ $" + res[0].price);
 
             var newStock = res[0].stock_quantity - amount;
-            connection.query("UPDATE products SET stock_quantity = " + newStock + "WHERE id = " + res[0].id, function (err, resUpdate) {
+            connection.query("UPDATE bamazon_db.products SET stock_quantity = " + newStock + "WHERE id = " + res[0].id, function (err, resUpdate) {
 
               if (err) throw err;
               console.log('');
+              console.log("Your order has been processed.")
+              console.log("thank you")
               connection.end();
-            }
-            )
-          }
+            });
+          };
         });
       };
     });
