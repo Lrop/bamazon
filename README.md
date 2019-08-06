@@ -25,7 +25,8 @@ See the amount of products for sale and other data included with these items. Se
 
 Step One:
 
-<img src = "Images/BAMAZON%201.PNG" width="643">
+
+<img src = "Images/BAMAZON%201.PNG" width="677">
 
 
 
@@ -37,6 +38,6 @@ Step Two:
 
 Step Three:
 
-<img src = "Images/BAMAZON%203.PNG" width="643">
+<img src = "Images/BAMAZON%203.PNG" width="677">
 
 
