@@ -71,7 +71,7 @@ var promtUser = function () {
         inquirer.prompt({
           name: "amountPRODUCT",
           type: "input",
-          message: "how many would you like to snag??"
+          message: "How many would you like to purchase?"
 
         }).then(function (responseSECOND) {
           var amount = responseSECOND.amountPRODUCT;
@@ -80,8 +80,8 @@ var promtUser = function () {
 
           } else {
             console.log();
-            console.log(res[0].products_label + " purchased");
-            console.log(amount + "qty @ $" + res[0].price);
+            console.log("  " + res[0].products_label + " purchased.");
+            console.log("  " + amount + " qty @ $" + res[0].price);
 
             var newStock = res[0].stock_quantity - amount;
             connection.query(
@@ -93,8 +93,9 @@ var promtUser = function () {
 
               if (err) throw err;
               console.log('');
-              console.log("Your order has been processed.")
-              console.log("thank you")
+              console.log("  Your total is $" + res[0].price * amount + ".");
+              console.log("  Your order has been processed.")
+              console.log("  Thank you!")
               connection.end();
             });
           };
