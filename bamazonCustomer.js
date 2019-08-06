@@ -1,7 +1,7 @@
-var mysql = require('mysql');
-var inquirer = require('inquirer');
-var Table = require('cli-table2');
-var colors = require('colors');
+var mysql = require("mysql");
+var inquirer = require("inquirer");
+var Table = require("cli-table2");
+var colors = require("colors");
 var clc = require("cli-color");
 
 
@@ -21,61 +21,76 @@ connection.connect(function (err) {
 });
 
 
-var displayProducts = function(){
-	var query = "Select * FROM products";
-	connection.query(query, function(err, res){
-    if(err) throw err;
+var displayProducts = function () {
+  var query = "Select * FROM products";
+  connection.query(query, function (err, res) {
+    if (err) throw err;
     console.log('                                  ++++++++++++++++++'.rainbow)
     console.log('                                  Welcome to Bamazon'.red);
     console.log('                                  ++++++++++++++++++'.rainbow)
 
-		var displayTable = new Table ({
-			head: [" ID ".white.inverse, " Product Name ".white.inverse, " Catergory ".white.inverse, " Price ".white.inverse, " Quantity ".white.inverse],
-			colWidths: [10,25,25,10,12]
+    var displayTable = new Table({
+      head: [" ID ".white.inverse, " Product Name ".white.inverse, " Catergory ".white.inverse, " Price ".white.inverse, " Quantity ".white.inverse],
+      colWidths: [10, 25, 25, 10, 12]
     });
-    
-		for(var i = 0; i < res.length; i++){
-			displayTable.push(
-				[res[i].id,res[i].products_label, res[i].department_name, res[i].price, res[i].stock_quantity]
-				);
-		}
+
+    for (var i = 0; i < res.length; i++) {
+      displayTable.push(
+        [res[i].id, res[i].products_label, res[i].department_name, res[i].price, res[i].stock_quantity]
+      );
+    }
     console.log(displayTable.toString());
-    console.log('');
+    // console.log('');
     promtUser();
-    
+
   });
-  
-    // connection.end();
+
+  // connection.end();
 }
 
 
-
-// displayProducts();
-
-
-
-var promtUser = function() {
+var promtUser = function () {
   inquirer.prompt({
-    name:"purchasedPRODUCT",
+    name: "purchasedPRODUCT",
     type: "input",
     message: "Please enter the ID of the desired item you wish to buy!"
 
-  }).then(function(responseFIRST){
+  }).then(function (responseFIRST) {
     var selection = responseFIRST.purchasedPRODUCT;
-    connection.query("SELECT * FROM products WHERE Id=?", selection, function(err, res){
-      // connection.end();
+    connection.query("SELECT * FROM products WHERE id=?", selection, function (err, res) {
+      // connection.end()
       if (err) throw err;
-      if (res.length === 0){
+      if (res.length === 0) {
         console.log("we dont got it");
-        // promtUser();
-        // promtUser();
-      }else {
-        console.log("good");
         
+      } else {
+        inquirer.prompt({
+          name: "amountPRODUCT",
+          type: "input",
+          message: "how many would you like to snag??"
+
+        }).then(function (responseSECOND) {
+          var amount = responseSECOND.amountPRODUCT;
+          if (amount > res[0].stock_quantity) {
+            console.log("We only have " + res[0].stock_quantity + " left in our store");
+
+          } else {
+            console.log();
+            console.log(res[0].products_label + " purchased");
+            console.log(amount + "qty @ $" + res[0].price);
+
+            var newStock = res[0].stock_quantity - amount;
+            connection.query("UPDATE products SET stock_quantity = " + newStock + "WHERE id = " + res[0].id, function (err, resUpdate) {
+
+              if (err) throw err;
+              console.log('');
+              connection.end();
+            }
+            )
+          }
+        });
       };
-      connection.end();
     });
   });
 };
-// promtUser();
 displayProducts();
