@@ -12,7 +12,7 @@ See the amount of products for sale and other data included with these items. Se
 + Node.js
 
 ## Customer Interface
-#### How to install on your own device
+### How to install on your own device
 + Inside of your command line clone the repo.
 
 `git clone git@github.com:Lrop/bamazon.git`
