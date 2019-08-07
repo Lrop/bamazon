@@ -48,7 +48,7 @@ Step Three: Enter Amount
 
 <img src = "Images/BAMAZON%203.PNG" width="677">
 
-Step Four: Results
+Step Four: Results/ Inventory has been updated
 
 <img src = "Images/BAMAZON%205.PNG" width="677">
 
