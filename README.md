@@ -31,24 +31,24 @@ See the amount of products for sale and other data included with these items. Se
 
 ## Bamazon Demo
 
-Step One:
+Step One: Run 
 
 
 <img src = "Images/BAMAZON%201.PNG" width="677">
 
 
 
-Step Two:
+Step Two: Enter Id
 
 <img src = "Images/BAMAZON%204.PNG" height="500">
 
 
 
-Step Three:
+Step Three: Enter Amount
 
 <img src = "Images/BAMAZON%203.PNG" width="677">
 
-Step Four:
+Step Four: Changes to database are made
 
 <img src = "Images/BAMAZON%205.PNG" width="677">
 
