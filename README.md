@@ -13,12 +13,16 @@ See the amount of products for sale and other data included with these items. Se
 
 ## Customer Interface
 #### How to install on your own device
++ Inside of your command line clone the repo.
 `git clone git@github.com:Lrop/bamazon.git`
 
++ Navigate to bamazon
 `cd bamazon`
 
++ Install the packages
 `npm install`
 
++ Run the application
 `node bamazonCustomer.js`
 
 ## Bamazon Demo
