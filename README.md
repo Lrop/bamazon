@@ -17,15 +17,15 @@ See the amount of products for sale and other data included with these items. Se
 
 `git clone git@github.com:Lrop/bamazon.git`
 
-+ Navigate to bamazon
++ Navigate to bamazon.
 
 `cd bamazon`
 
-+ Install the packages
++ Install the packages.
 
 `npm install`
 
-+ Run the application
++ Run the application.
 
 `node bamazonCustomer.js`
 
