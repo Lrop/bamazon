@@ -25,7 +25,7 @@ See the amount of products for sale and other data included with these items. Se
 
 `npm install`
 
-+ Run the application\
++ Run the application
 
 `node bamazonCustomer.js`
 
