@@ -38,7 +38,7 @@ Step One: Run
 
 
 
-Step Two: Enter Id
+Step Two: Enter ID
 
 <img src = "Images/BAMAZON%204.PNG" height="500">
 
@@ -48,7 +48,7 @@ Step Three: Enter Amount
 
 <img src = "Images/BAMAZON%203.PNG" width="677">
 
-Step Four: Changes to database are made
+Step Four: Results
 
 <img src = "Images/BAMAZON%205.PNG" width="677">
 
